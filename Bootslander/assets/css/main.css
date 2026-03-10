@@ -1223,6 +1223,9 @@ section,
 }
 
 .gallery .gallery-item img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
   transition: all ease-in-out 0.4s;
 }
 
@@ -1233,6 +1236,63 @@ section,
 /*--------------------------------------------------------------
 # Testimonials Section
 --------------------------------------------------------------*/
+.testimonials.leadership-section {
+  position: relative;
+  background-image: linear-gradient(180deg, rgba(8, 10, 32, 0.72) 0%, rgba(8, 10, 32, 0.5) 35%, rgba(8, 10, 32, 0.72) 100%), url("../img/leadership-sticky-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding: 100px 0 140px;
+}
+
+.testimonials.leadership-section:before {
+  background: linear-gradient(180deg, rgba(6, 8, 25, 0.72) 0%, rgba(6, 8, 25, 0.5) 45%, rgba(6, 8, 25, 0.8) 100%);
+}
+
+.leadership-section .section-wave {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  line-height: 0;
+  z-index: 4;
+}
+
+.leadership-section .section-wave svg {
+  display: block;
+  width: 100%;
+  height: 90px;
+}
+
+.team-section {
+  background: #ffffff;
+  position: relative;
+  z-index: 5;
+  padding-top: 95px;
+}
+
+.image-attribution-wrap {
+  position: relative;
+  z-index: 3;
+}
+
+.image-attribution {
+  margin: 10px 0 0;
+  font-size: 12px;
+  color: color-mix(in srgb, var(--contrast-color), transparent 18%);
+  text-align: right;
+}
+
+.image-attribution a {
+  color: var(--contrast-color);
+  text-decoration: underline;
+}
+
+.image-attribution a:hover {
+  color: color-mix(in srgb, var(--contrast-color), transparent 20%);
+}
+
 .testimonials {
   padding: 80px 0;
   position: relative;
@@ -1271,10 +1331,13 @@ section,
 }
 
 .testimonials .testimonial-item .testimonial-img {
-  width: 100px;
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
   border: 6px solid color-mix(in srgb, var(--default-color), transparent 85%);
   margin: 0 auto;
+  object-fit: cover;
+  object-position: center;
 }
 
 .testimonials .testimonial-item h3 {
@@ -1351,6 +1414,22 @@ section,
   }
 }
 
+@media (max-width: 991.98px) {
+  .testimonials.leadership-section {
+    background-attachment: scroll;
+    padding-top: 90px;
+    padding-bottom: 110px;
+  }
+
+  .leadership-section .section-wave svg {
+    height: 64px;
+  }
+
+  .team-section {
+    padding-top: 80px;
+  }
+}
+
 /*--------------------------------------------------------------
 # Team Section
 --------------------------------------------------------------*/
@@ -1361,6 +1440,16 @@ section,
 .team .member .pic {
   overflow: hidden;
   margin-bottom: 50px;
+  aspect-ratio: 4 / 5;
+  position: relative;
+  border-radius: 8px;
+}
+
+.team .member .pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
 }
 
 .team .member .member-info {
@@ -1401,24 +1490,80 @@ section,
   font-size: 13px;
 }
 
-.team .member .social {
+.team .member .hover-overlay {
   position: absolute;
-  right: 15px;
-  bottom: 15px;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10, 12, 35, 0.9) 0%, rgba(10, 12, 35, 0.58) 36%, rgba(10, 12, 35, 0) 66%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
 }
 
-.team .member .social a {
-  transition: color 0.3s;
-  color: color-mix(in srgb, var(--default-color), transparent 70%);
+.team .member .hover-social {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  display: flex;
+  gap: 8px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
-.team .member .social a:hover {
+.team .member:hover .hover-overlay {
+  opacity: 1;
+}
+
+.team .member:hover .hover-social {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.team .member .mobile-social {
+  display: none;
+  margin-top: 12px;
+  gap: 8px;
+}
+
+.team .member .social-link {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
+}
+
+.team .member .mobile-social .social-link {
+  background: color-mix(in srgb, var(--accent-color), transparent 86%);
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 56%);
   color: var(--accent-color);
 }
 
-.team .member .social i {
+.team .member .social-link:hover {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  color: var(--contrast-color);
+  transform: translateY(-2px);
+}
+
+.team .member .social-link i {
   font-size: 16px;
-  margin: 0 2px;
+}
+
+@media (max-width: 991.98px) {
+  .team .member .hover-overlay,
+  .team .member .hover-social {
+    display: none;
+  }
+
+  .team .member .mobile-social {
+    display: flex;
+  }
 }
 
 /*--------------------------------------------------------------
