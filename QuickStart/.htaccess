@@ -18,3 +18,4 @@ RewriteRule ^ - [L]
 # Pretty URLs: /about -> /about.html
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^(.+?)/?$ $1.html [L]
+Redirect 301 /starter-page /

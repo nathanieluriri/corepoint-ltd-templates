@@ -1958,3 +1958,25 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+.btn-core-modal {
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 35%);
+  color: var(--contrast-color);
+  background: color-mix(in srgb, var(--accent-color), transparent 15%);
+}
+
+.btn-core-modal:hover {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+.core-modal .modal-content {
+  border: 0;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #0f4f5b, #0b3944);
+  color: #f4feff;
+}
+
+.core-modal .modal-header {
+  border-bottom: 1px solid color-mix(in srgb, #ffffff, transparent 82%);
+}

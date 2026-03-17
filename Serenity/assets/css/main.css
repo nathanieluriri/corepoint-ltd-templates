@@ -2729,3 +2729,25 @@ section,
   color: color-mix(in srgb, var(--default-color), transparent 60%);
   font-size: 14px;
 }
+.btn-serenity-profile {
+  border-radius: 8px;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 40%);
+  color: var(--heading-color);
+  background: color-mix(in srgb, var(--accent-color), transparent 86%);
+}
+
+.btn-serenity-profile:hover {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+.serenity-profile-modal .modal-content {
+  border: 0;
+  border-radius: 0;
+  border-top: 5px solid var(--accent-color);
+  box-shadow: 0 18px 45px color-mix(in srgb, var(--heading-color), transparent 70%);
+}
+
+.serenity-profile-modal .modal-header {
+  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
+}

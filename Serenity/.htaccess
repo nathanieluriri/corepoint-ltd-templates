@@ -18,3 +18,10 @@ RewriteRule ^ - [L]
 # Pretty URLs: /about -> /about.html
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^(.+?)/?$ $1.html [L]
+Redirect 301 /blog /
+Redirect 301 /blog-details /
+Redirect 301 /pricing /
+Redirect 301 /portfolio /
+Redirect 301 /portfolio-details /
+Redirect 301 /testimonials /
+Redirect 301 /starter-page /
